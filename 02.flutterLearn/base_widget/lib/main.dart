@@ -39,14 +39,14 @@ class _MyHomeContentState extends State<MyHomeContent> {
   final imageURL = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2797731760,1857659050&fm=26&gp=0.jpg";
 
   final userNameTextFieldEditController = TextEditingController();
-  final userPassworldTextFieldEditController = TextEditingController();
+  final userPasswordTextFieldEditController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextFieldDemo(userNameTextFieldEditController: userNameTextFieldEditController, userPassworldTextFieldEditController: userPassworldTextFieldEditController),
+      child: TextFieldDemo(userNameTextFieldEditController: userNameTextFieldEditController, userPasswordTextFieldEditController: userPasswordTextFieldEditController),
     );
   }
 }
@@ -56,11 +56,11 @@ class TextFieldDemo extends StatelessWidget {
   const TextFieldDemo({
     Key key,
     @required this.userNameTextFieldEditController,
-    @required this.userPassworldTextFieldEditController,
+    @required this.userPasswordTextFieldEditController,
   }) : super(key: key);
 
   final TextEditingController userNameTextFieldEditController;
-  final TextEditingController userPassworldTextFieldEditController;
+  final TextEditingController userPasswordTextFieldEditController;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class TextFieldDemo extends StatelessWidget {
         SizedBox(height: 10,),
 
         TextField(
-          controller: userPassworldTextFieldEditController,
+          controller: userPasswordTextFieldEditController,
           decoration: InputDecoration (
             labelText: "user password",
             icon: Icon(Icons.lock),
@@ -98,7 +98,7 @@ class TextFieldDemo extends StatelessWidget {
 
     FlatButton(onPressed: () {
       final userName = userNameTextFieldEditController.text;
-      final userPass = userPassworldTextFieldEditController.text;
+      final userPass = userPasswordTextFieldEditController.text;
 
       print("name:$userName, password:$userPass");
     },
