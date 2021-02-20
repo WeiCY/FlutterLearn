@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -28,18 +27,31 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
-        Image.network("https://pics4.baidu.com/feed/f3d3572c11dfa9ec4e31ee4ba6f5e30b918fc179.jpeg?token=fb0f58e68ea3c2e46117745d7cabf24c&s=AF32748508837B5D10AB9D810300A088"),
+        Image.network(
+            "https://pics4.baidu.com/feed/f3d3572c11dfa9ec4e31ee4ba6f5e30b918fc179.jpeg?token=fb0f58e68ea3c2e46117745d7cabf24c&s=AF32748508837B5D10AB9D810300A088"),
         Positioned(
           bottom: 0,
           left: 0,
           right: 0,
           child: Container(
             color: Colors.blue,
+            padding: EdgeInsets.all(8),
             // width: double.infinity, 设置宽度无限 但是这样和positioned冲突
-            child: Text("z这是新闻标题" ,style: TextStyle(color: Colors.white, fontSize: 20),),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
+                Text(
+                  "z这是新闻标题",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
           ),
         )
       ],
@@ -67,15 +79,23 @@ class StackDemo1 extends StatelessWidget {
       // fit: StackFit.expand,
       overflow: Overflow.visible,
       children: [
-        Image.network("https://pics4.baidu.com/feed/f3d3572c11dfa9ec4e31ee4ba6f5e30b918fc179.jpeg?token=fb0f58e68ea3c2e46117745d7cabf24c&s=AF32748508837B5D10AB9D810300A088"),
-        Container(width: 150, height: 150, color: Colors.red,),
+        Image.network(
+            "https://pics4.baidu.com/feed/f3d3572c11dfa9ec4e31ee4ba6f5e30b918fc179.jpeg?token=fb0f58e68ea3c2e46117745d7cabf24c&s=AF32748508837B5D10AB9D810300A088"),
+        Container(
+          width: 150,
+          height: 150,
+          color: Colors.red,
+        ),
 
         // 包裹Psoitioned 来设置位置
 
         Positioned(
           left: 0,
-            bottom: -10,
-            child: Text("新闻",style: TextStyle(fontSize: 20, color: Colors.green),),
+          bottom: -10,
+          child: Text(
+            "新闻",
+            style: TextStyle(fontSize: 20, color: Colors.green),
+          ),
         ),
       ],
     );
@@ -89,7 +109,6 @@ class RowDemo1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Row(
       /*
        * Flexible
@@ -103,12 +122,24 @@ class RowDemo1 extends StatelessWidget {
        * Expanded -> Flexible(  fit: FlexFit.tight, ）
        *
        */
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
         Expanded(
-            child: Container(width: 100,height: 100,color: Colors.red,)
+            child: Container(
+          width: 100,
+          height: 100,
+          color: Colors.red,
+        )),
+        Container(
+          width: 120,
+          height: 90,
+          color: Colors.blue,
         ),
-        Container(width: 120,height: 90,color: Colors.blue,),
-        Container(width: 90,height: 120,color: Colors.green,),
+        Container(
+          width: 90,
+          height: 120,
+          color: Colors.green,
+        ),
       ],
     );
   }
@@ -121,21 +152,32 @@ class RowDemo2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Row(
       /*
        * Expanded 还可以作为收缩使用
        */
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-      Expanded(child: Container(width: 500,height: 100,color: Colors.red,)),
-      Container(width: 120,height: 90,color: Colors.blue,),
-      Container(width: 90,height: 120,color: Colors.green,),
-    ],
+        Expanded(
+            child: Container(
+          width: 500,
+          height: 100,
+          color: Colors.red,
+        )),
+        Container(
+          width: 120,
+          height: 90,
+          color: Colors.blue,
+        ),
+        Container(
+          width: 90,
+          height: 120,
+          color: Colors.green,
+        ),
+      ],
     );
   }
 }
-
 
 // Row/Colum：继承自Flex
 // Flex 类似于CSS中Flex
@@ -148,7 +190,6 @@ class RowDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-
       /*
        * Row特点：水平方向尽可能占据比较大的空间，垂直方向包裹内容
        * 如果水平方向想要包裹内容 可以设置属性mainAxisSize 为 MainAxisSize.min, 默认max
@@ -175,25 +216,25 @@ class RowDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(width: 100,height: 100,color: Colors.red,),
-        Container(width: 120,height: 90,color: Colors.blue,),
-        Container(width: 90,height: 120,color: Colors.green,),
+        Container(
+          width: 100,
+          height: 100,
+          color: Colors.red,
+        ),
+        Container(
+          width: 120,
+          height: 90,
+          color: Colors.blue,
+        ),
+        Container(
+          width: 90,
+          height: 120,
+          color: Colors.green,
+        ),
       ],
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
  *  单子组件
@@ -209,7 +250,7 @@ class ContainerWidgetDemo extends StatelessWidget {
       // color: Colors.black,
       width: 200,
       height: 200,
-      alignment: Alignment(1,1),
+      alignment: Alignment(1, 1),
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(50),
       transform: Matrix4.rotationZ(100),
@@ -218,31 +259,33 @@ class ContainerWidgetDemo extends StatelessWidget {
         color: Colors.blue,
         border: Border.all(
           color: Colors.pink,
-          width:5,
+          width: 5,
         ),
 
-        boxShadow:[
+        boxShadow: [
           BoxShadow(
             color: Colors.orange,
-            offset: Offset(5,5),
+            offset: Offset(5, 5),
             blurRadius: 10,
             spreadRadius: 10,
           ),
           BoxShadow(
             color: Colors.green,
-            offset: Offset(-5,5),
+            offset: Offset(-5, 5),
             blurRadius: 10,
             spreadRadius: 10,
           )
         ],
-        borderRadius:BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10),
       ),
-      child: Icon(Icons.pets,size: 50,color: Colors.red,),
+      child: Icon(
+        Icons.pets,
+        size: 50,
+        color: Colors.red,
+      ),
     );
   }
 }
-
-
 
 class PaddingDemo2 extends StatelessWidget {
   const PaddingDemo2({
@@ -253,20 +296,30 @@ class PaddingDemo2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("白日依山尽，黄河入海流",style: TextStyle(fontSize: 30,backgroundColor: Colors.red),),
+        Text(
+          "白日依山尽，黄河入海流",
+          style: TextStyle(fontSize: 30, backgroundColor: Colors.red),
+        ),
         // 添加下间距
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
 
         Padding(
           // padding: const EdgeInsets.all(5.0), // 但是这养上下左都会有
           // padding: EdgeInsets.only(bottom: 10), // 只有底部
           // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0), // 可选属性 可单独为垂直或水平方向添加
           padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: Text("白日依山尽，黄河入海流",style: TextStyle(fontSize: 30,backgroundColor: Colors.red),),
+          child: Text(
+            "白日依山尽，黄河入海流",
+            style: TextStyle(fontSize: 30, backgroundColor: Colors.red),
+          ),
         ),
 
-
-        Text("白日依山尽，黄河入海流",style: TextStyle(fontSize: 30,backgroundColor: Colors.red),),
+        Text(
+          "白日依山尽，黄河入海流",
+          style: TextStyle(fontSize: 30, backgroundColor: Colors.red),
+        ),
       ],
     );
   }
@@ -281,13 +334,13 @@ class PaddingDemo1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text("白日依山尽，黄河入海流",style: TextStyle(fontSize: 30,backgroundColor: Colors.red),),
+      child: Text(
+        "白日依山尽，黄河入海流",
+        style: TextStyle(fontSize: 30, backgroundColor: Colors.red),
+      ),
     );
   }
 }
-
-
-
 
 class AlignDemo2 extends StatelessWidget {
   const AlignDemo2({
@@ -299,12 +352,15 @@ class AlignDemo2 extends StatelessWidget {
     return Align(
       // 默认全部充满
       // 默认居中 和center一致
-      alignment: Alignment(1,-1),
+      alignment: Alignment(1, -1),
 
       // 也可通过下面两个属性来设置大小  根据child的大小的倍数来设置
       widthFactor: 5,
       heightFactor: 5,
-      child: Icon(Icons.pets,size: 50,),
+      child: Icon(
+        Icons.pets,
+        size: 50,
+      ),
     );
   }
 }
@@ -316,17 +372,18 @@ class AlignDemo1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // 可通过包裹一个container来设置大小
     return Container(
       width: 300,
       height: 300,
       color: Colors.red,
-
       child: Align(
         // 默认居中 和center一致
-        alignment: Alignment(1,-1),
-        child: Icon(Icons.pets,size: 50,),
+        alignment: Alignment(1, -1),
+        child: Icon(
+          Icons.pets,
+          size: 50,
+        ),
       ),
     );
   }
