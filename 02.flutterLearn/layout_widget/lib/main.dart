@@ -27,6 +27,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    return StackDemo2();
+  }
+}
+
+
+class StackDemo2 extends StatelessWidget {
+  const StackDemo2({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.network(
