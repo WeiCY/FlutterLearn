@@ -24,7 +24,6 @@ class Person {
   // 重写打印信息
   @override
   String toString() {
-    // TODO: implement toString
     return "$name $age";
   }
 }
