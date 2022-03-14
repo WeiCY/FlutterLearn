@@ -29,6 +29,7 @@ main(List<String> args) {
  */
 Future getNetworkData() async {
   await sleep(Duration(seconds: 3));
+  sleep(Duration(seconds: 2));
   // 内部自动包裹将返回结果包一个future
   return "hello world";
 }
